@@ -316,13 +316,13 @@ header {
 
 .extensions-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
   gap: var(--space-lg);
 }
 
 @media (min-width: 25rem) {
   .extensions-container {
-    grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(21.5rem, 1fr));
   }
 }
 
@@ -456,4 +456,47 @@ header {
 
 .switch-input:checked + .switch-label::after {
   left: 18px;
+}
+
+.error-message {
+  padding: var(--space-2xl);
+  background-color: #fff1f0;
+  border: 1px solid #ffa39e;
+  border-radius: 8px;
+  color: #cf1322;
+  text-align: center;
+  margin-block-start: var(--space-2xl);
+}
+
+.loader {
+  width: 100px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #cf1322;
+  animation: l15 1s infinite linear;
+  justify-self: center;
+  margin-block-start: var(--space-6xl);
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+
+@keyframes l15 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
