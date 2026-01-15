@@ -42,7 +42,7 @@
           aria-checked="false"
           role="switch"
         >
-          <img class="theme-icon" src="" alt="" />
+          <img class="theme-icon" src="" alt="" aria-hidden="true" />
         </button>
       </div>
     </header>
@@ -52,14 +52,24 @@
         <div class="extensions-header">
           <h1 class="main-heading">Extensions List</h1>
 
-          <div class="btn-container">
-            <button class="btn btn-all" type="button">All</button>
-            <button class="btn btn-active" type="button">Active</button>
-            <button class="btn btn-inactive" type="button">Inactive</button>
+          <div
+            class="btn-container"
+            role="group"
+            aria-label="Filter extensions"
+          >
+            <button class="btn btn-all" type="button" aria-pressed="true">
+              All
+            </button>
+            <button class="btn btn-active" type="button" aria-pressed="false">
+              Active
+            </button>
+            <button class="btn btn-inactive" type="button" aria-pressed="false">
+              Inactive
+            </button>
           </div>
         </div>
 
-        <div class="extensions-container"></div>
+        <div class="extensions-container" aria-live="polite"></div>
 
         <template id="extension-card-template">
           <div class="card">
@@ -72,13 +82,18 @@
             </div>
 
             <div class="card-actions">
-              <button class="btn-remove" type="button">Remove</button>
-              <form action="#">
-                <div class="switch">
-                  <input id="" type="checkbox" class="switch-input" />
-                  <label for="" class="switch-label"></label>
-                </div>
-              </form>
+              <button
+                class="btn-remove"
+                type="button"
+                aria-label="Remove extension"
+              >
+                Remove
+              </button>
+
+              <div class="switch">
+                <input id="" type="checkbox" class="switch-input" />
+                <label for="" class="switch-label"></label>
+              </div>
             </div>
           </div>
         </template>

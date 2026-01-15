@@ -90,3 +90,13 @@ themeBtn.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", () => {
   loadTheme(getCurrentTheme());
 });
+
+const filterButtons = document.querySelectorAll(".btn-container .btn");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+
+    button.setAttribute("aria-pressed", "true");
+  });
+});

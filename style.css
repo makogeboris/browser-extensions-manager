@@ -461,6 +461,7 @@ header {
   font-size: var(--fs-md);
   line-height: var(--lh-lg);
   letter-spacing: var(--ls-md);
+  border: 1px solid transparent;
 }
 
 .btn:focus-visible {
@@ -468,19 +469,18 @@ header {
   outline-offset: 2px;
 }
 
-.btn-all {
+.btn-container .btn[aria-pressed="true"] {
   font-weight: 500;
-  border: 1px solid transparent;
-  background: var(--btn-active-bg);
+  background-color: var(--btn-active-bg);
   color: var(--btn-text-active);
+  border-color: transparent;
 }
 
-.btn-active,
-.btn-inactive {
+.btn-container .btn[aria-pressed="false"] {
   font-weight: 400;
-  border: 1px solid var(--btn-inactive-bg);
-  background: var(--btn-inactive-bg);
+  background-color: var(--btn-inactive-bg);
   color: var(--btn-text-inactive);
+  border-color: var(--btn-inactive-border);
   box-shadow: var(--btn-shadow);
 }
 
