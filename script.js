@@ -11,11 +11,11 @@ async function loadExtensions() {
 
     if (!response.ok) throw new Error("Failed to load JSON");
 
-    const extensionData = await response.json();
+    const data = await response.json();
 
     container.innerHTML = "";
 
-    extensionData.forEach((item) => {
+    data.forEach((item) => {
       const clone = template.content.cloneNode(true);
 
       clone.querySelector(".card-name").textContent = item.name;
@@ -48,3 +48,45 @@ async function loadExtensions() {
 }
 
 loadExtensions();
+
+const themeBtn = document.querySelector(".btn-theme");
+const themeIcon = themeBtn.querySelector(".theme-icon");
+const logo = document.querySelector(".logo-img");
+
+function getCurrentTheme() {
+  const savedTheme = localStorage.getItem("ext");
+  if (savedTheme) return savedTheme;
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function loadTheme(theme) {
+  const root = document.documentElement;
+
+  themeBtn.setAttribute("aria-checked", theme === "dark" ? "true" : "false");
+
+  if (theme === "light") {
+    themeIcon.src = "assets/images/icon-moon.svg";
+    logo.src = "assets/images/logo-light.svg";
+  } else {
+    themeIcon.src = "assets/images/icon-sun.svg";
+    logo.src = "assets/images/logo-dark.svg";
+  }
+
+  root.setAttribute("color-scheme", theme);
+}
+
+themeBtn.addEventListener("click", () => {
+  const current = getCurrentTheme();
+  const nextTheme = current === "dark" ? "light" : "dark";
+
+  localStorage.setItem("ext", nextTheme);
+
+  loadTheme(nextTheme);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadTheme(getCurrentTheme());
+});
