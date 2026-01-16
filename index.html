@@ -100,6 +100,28 @@
       </div>
     </main>
 
+    <div
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
+    >
+      <div class="modal-info">
+        <h3 id="modal-title" class="modal-title">Remove Extension</h3>
+        <p id="modal-description" class="modal-description">
+          Are you sure you want to remove this extension?
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-danger">Remove</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
     <script src="script.js"></script>
   </body>
 </html>

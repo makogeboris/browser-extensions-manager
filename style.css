@@ -522,7 +522,8 @@ header {
   gap: var(--space-sm);
 }
 
-.card-name {
+.card-name,
+.modal-title {
   font-weight: 700;
   font-size: var(--fs-md);
   line-height: var(-lh-md);
@@ -530,7 +531,8 @@ header {
   color: var(--title);
 }
 
-.card-description {
+.card-description,
+.modal-description {
   font-weight: 400;
   font-size: var(--fs-sm);
   line-height: var(-lh-lg);
@@ -673,4 +675,82 @@ header {
   100% {
     transform: rotate(1turn);
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  transition: all 0.3s;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 25rem;
+  z-index: 101;
+  transition: all 0.3s;
+  padding: var(--space-3xl);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--space-xl);
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.btn-cancel,
+.btn-danger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4em 1em;
+  border-radius: var(--space-md);
+  font-size: var(--fs-md);
+  line-height: var(--lh-md);
+  font-weight: 400;
+  letter-spacing: var(--ls-md);
+  border: 1px solid transparent;
+  color: hsl(200, 60%, 99%);
+}
+
+.btn-cancel {
+  background-color: #67727e;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+}
+
+.btn-cancel:focus-visible,
+.btn-danger:focus-visible {
+  outline: 2px solid var(--btn-active-bg);
+  outline-offset: 2px;
+}
+
+.btn-danger:hover,
+.btn-cancel:hover {
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
 }

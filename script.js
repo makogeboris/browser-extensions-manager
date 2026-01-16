@@ -100,3 +100,35 @@ filterButtons.forEach((button) => {
     button.setAttribute("aria-pressed", "true");
   });
 });
+
+const container = document.querySelector(".extensions-container");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCancel = document.querySelector(".btn-cancel");
+
+container.addEventListener("click", function (e) {
+  const btnRemove = e.target.closest(".btn-remove");
+
+  if (btnRemove) {
+    openModal();
+  }
+});
+
+function openModal() {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+function closeModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+btnCancel.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
