@@ -531,7 +531,7 @@ header {
 .modal-title {
   font-weight: 700;
   font-size: var(--fs-md);
-  line-height: var(-lh-md);
+  line-height: var(--lh-md);
   letter-spacing: var(--ls-sm);
   color: var(--title);
 }
@@ -540,7 +540,7 @@ header {
 .modal-description {
   font-weight: 400;
   font-size: var(--fs-sm);
-  line-height: var(-lh-lg);
+  line-height: var(--lh-lg);
   letter-spacing: var(--ls-lg);
   color: var(--desc);
 }
