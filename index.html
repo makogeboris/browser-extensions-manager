@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Extensions Manager</title>
+    <meta
+      name="description"
+      content="Manage and customize your browser extensions. Easily enable, disable, or remove extensions from your personalized dashboard."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Browser Extension Manager"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a class="logo" href="/" aria-label="Go to homepage">
+          <img class="logo-img" src="" alt="Browser Extensions Manager" />
+        </a>
+
+        <button
+          class="btn-theme"
+          type="button"
+          aria-label="Toggle dark mode"
+          aria-checked="false"
+          role="switch"
+        >
+          <img class="theme-icon" src="" alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-container">
+        <div class="extensions-header">
+          <h1 class="main-heading">Extensions List</h1>
+
+          <div
+            class="btn-container"
+            role="group"
+            aria-label="Filter extensions"
+          >
+            <button class="btn btn-all" type="button" aria-pressed="true">
+              All
+            </button>
+            <button class="btn btn-active" type="button" aria-pressed="false">
+              Active
+            </button>
+            <button class="btn btn-inactive" type="button" aria-pressed="false">
+              Inactive
+            </button>
+          </div>
+        </div>
+
+        <ul class="extensions-container" aria-live="polite"></ul>
+
+        <template id="extension-card-template">
+          <li class="card">
+            <div class="card-info">
+              <img src="" alt="" class="ext-img" />
+              <div class="card-details">
+                <h2 class="card-name"></h2>
+                <p class="card-description"></p>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button
+                class="btn-remove"
+                type="button"
+                aria-label="Remove extension"
+              >
+                Remove
+              </button>
+
+              <div class="switch">
+                <input id="" type="checkbox" class="switch-input" />
+                <label for="" class="switch-label"></label>
+              </div>
+            </div>
+          </li>
+        </template>
+      </div>
+    </main>
+
+    <div
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
+    >
+      <div class="modal-info">
+        <h3 id="modal-title" class="modal-title">Remove Extension</h3>
+        <p id="modal-description" class="modal-description">
+          Are you sure you want to remove this extension?
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-danger">Remove</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
